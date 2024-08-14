@@ -1,0 +1,2 @@
+C:\Users\abc\source\repos\TestWixToolkit\MyInstaller\bin\Debug\MyInstaller-Debug-x64.msi
+C:\Users\abc\source\repos\TestWixToolkit\MyInstaller\bin\Debug\MyInstaller-Debug-x64.wixpdb

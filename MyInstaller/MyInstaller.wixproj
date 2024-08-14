@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" InitialTargets="EnsureWixToolsetInstalled" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>edd31760-5b92-433a-aea3-b90ed3f76ed7</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>MyInstaller-$(configuration)-$(Platform)</OutputName>
+    <OutputType>Package</OutputType>
+	  
+	  <!-- semicoln for no culture-->
+	  <Cultures>;</Cultures>
+	  
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Components.wxs" />
+    <Compile Include="ComponentsGenerated.wxs" />
+    <Compile Include="Directories.wxs" />
+    <Compile Include="Product.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common.wxl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestWixToolkit\TestWixToolkit.csproj">
+      <Name>TestWixToolkit</Name>
+      <Project>{d74129f9-2263-46dc-b0fb-da2936deea7a}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
+  <Target Name="EnsureWixToolsetInstalled" Condition=" '$(WixTargetsImported)' != 'true' ">
+    <Error Text="The WiX Toolset v3.11 build tools must be installed to build this project. To download the WiX Toolset, see https://wixtoolset.org/releases/v3.11/stable" />
+  </Target>
+  <!-- Before Build -->
+  <Target Name="BeforeBuild">
+    <!-- Clean previous build folder-->
+    <Exec Command="rd /s /q ..\TestWixToolkit\bin\$(Configuration)\net8.0\win-$(Platform)" />
+    <!-- Publish dotnet core app -->
+    <Exec Command="dotnet publish ..\TestWixToolkit\TestWixToolkit.csproj -c $(Configuration) -r win-$(Platform)" />
+    <!-- Get assembly version -->
+    <GetAssemblyIdentity AssemblyFiles="..\TestWixToolkit\bin\$(Configuration)\net8.0\win-$(Platform)\publish\TestWixToolkit.dll">
+      <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
+    </GetAssemblyIdentity>
+    <!-- Define some Variables we need -->
+    <PropertyGroup>
+      <!-- Will add Application Build version -->
+      <DefineConstants>BuildVersion=%(AssemblyVersion.Version);BasePath=..\TestWixToolkit\bin\$(Configuration)\net8.0\win-$(Platform)\publish</DefineConstants>
+    </PropertyGroup>
+
+	  <!-- Harvest file components from publish folder  Unable to find heat.
+    <HeatDirectory OutputFile="ComponentsGenerated.wxs" DirectoryRefId="INSTALLFOLDER" ComponentGroupName="PublishedComponents" SuppressCom="true" Directory="..\TestWixToolkit\bin\$(Configuration)\net8.0\win-$(Platform)  " SuppressFragments="true" SuppressRegistry="true" SuppressRootDirectory="true" AutoGenerateGuids="false" GenerateGuidsNow="true" ToolPath="$(WixToolPath)" />
+
+	  <Exec Command="&quot;C:\Program Files (x86)\WiX Toolset v3.14\bin\heat.exe&quot; dir $(var.BasePath) -cg PublishedComponents -dr INSTALLFOLDER -gg -srd -sreg -var $(var.BasePath) -o ComponentsGenerated.wxs" />-->
+	  
+	   <Exec Command="&quot;C:\Program Files (x86)\WiX Toolset v3.14\bin\heat.exe&quot; dir ..\TestWixToolkit\bin\$(Configuration)\net8.0\win-$(Platform)\publish -cg PublishedComponents -dr INSTALLFOLDER -gg -srd -sreg -var var.BasePath -o ComponentsGenerated.wxs" />
+
+
+
+
+  </Target>
+  <Target Name="AfterBuild">
+	  <GetAssemblyIdentity AssemblyFiles="..\TestWixToolkit\bin\$(Configuration)\net8.0\win-$(Platform)\publish\TestWixToolkit.dll">
+		  <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
+	  </GetAssemblyIdentity>
+	  
+	  <!-- Rename and move final MSI -->
+	  <Exec Command="if not exist Installs mkdir Installs" />
+	  <Exec Command="move bin\$(Configuration)\$(OutputName).msi Installs\ConsoleApp-%(AssemblyVersion.Version)-$(Configuration)-$(Platform).msi" />
+	  
+  </Target>
+</Project>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	
+	<!-- can be referenced from other parts of the WiX project -->
+	<Fragment>
+		
+		<!-- Represents the root directory of the installation process. All other directories are defined relative to this directory. Name="SourceDir" defines the name of the folder in the root directory (TARGETDIR)-->
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			
+			<!-- Represents the Start Menu Programs folder where application shortcuts are typically created -->
+			<Directory Id="ProgramMenuFolder">
+				
+				<!-- Custom Id. A custom directory under the Start Menu, specifically for your application -->
+				<Directory Id="InstallProgroamMenuFolder" Name="!(loc.ProductNameFolder)"/>
+				
+				
+			</Directory>
+			
+
+			<?if $(var.Platform)=x64?>
+			<!-- Program Files (64bit) Folder -->
+			<Directory Id="ProgramFiles64Folder">
+				
+				<!-- The directory where the application files will be installed -->
+				<Directory Id="INSTALLFOLDER" Name="!(loc.ProductNameFolder)" />
+				
+			</Directory>
+			<?else?>
+			<!-- Program Files (32bit) Folder -->
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="!(loc.ProductNameFolder)" />
+			</Directory>
+			<?endif?>
+			
+			
+			
+		</Directory>
+	</Fragment>
+</Wix>

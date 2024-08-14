@@ -1,0 +1,3 @@
+obj\Debug\Components.wixobj
+obj\Debug\Directories.wixobj
+obj\Debug\Product.wixobj

@@ -1,0 +1,9 @@
+obj\Debug\Components.wixobj
+obj\Debug\ComponentsGenerated.wixobj
+obj\Debug\Directories.wixobj
+obj\Debug\Product.wixobj
+C:\Users\abc\source\repos\TestWixToolkit\MyInstaller\bin\Debug\MyInstaller-Debug-x64.msi
+C:\Users\abc\source\repos\TestWixToolkit\MyInstaller\bin\Debug\MyInstaller-Debug-x64.wixpdb
+obj\Debug\MyInstaller.wixproj.BindContentsFileListnull.txt
+obj\Debug\MyInstaller.wixproj.BindOutputsFileListnull.txt
+obj\Debug\MyInstaller.wixproj.BindBuiltOutputsFileListnull.txt

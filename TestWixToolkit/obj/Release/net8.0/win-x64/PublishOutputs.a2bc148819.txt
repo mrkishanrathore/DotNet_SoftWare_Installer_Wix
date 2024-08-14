@@ -1,0 +1,5 @@
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\bin\Release\net8.0\win-x64\publish\TestWixToolkit.exe
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\bin\Release\net8.0\win-x64\publish\TestWixToolkit.dll
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\bin\Release\net8.0\win-x64\publish\TestWixToolkit.deps.json
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\bin\Release\net8.0\win-x64\publish\TestWixToolkit.runtimeconfig.json
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\bin\Release\net8.0\win-x64\publish\TestWixToolkit.pdb

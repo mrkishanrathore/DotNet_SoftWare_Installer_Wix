@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLFOLDER" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="PublishedComponents">
+            <Component Id="cmpD0D349DC00A1602F85A2BC79A36B6D36" Directory="INSTALLFOLDER" Guid="{E4F9C187-8817-440C-8D72-629CAC6AC4B1}">
+                <File Id="fil8711AE5A4E53A04D48FCDE3A605D4AC5" KeyPath="yes" Source="$(var.BasePath)\TestWixToolkit.deps.json" />
+            </Component>
+            <Component Id="cmp0CB9B1330DC63AFF61EA6AC80452F290" Directory="INSTALLFOLDER" Guid="{22DB7C5C-24EE-4319-83C1-1F62DE478EF1}">
+                <File Id="fil54B3C945189793CFB27392C9F2927817" KeyPath="yes" Source="$(var.BasePath)\TestWixToolkit.dll" />
+            </Component>
+            <Component Id="cmpDBDE17AC22B28D3E2D590197D6E9FF71" Directory="INSTALLFOLDER" Guid="{1833DA5F-C471-4EFA-A277-BB2D2A420B6F}">
+                <File Id="fil9C6ACFC8F6B616F9963FB6F9407088CF" KeyPath="yes" Source="$(var.BasePath)\TestWixToolkit.exe" />
+            </Component>
+            <Component Id="cmp9B3142858B48394970DBFAA2AA5FCCCE" Directory="INSTALLFOLDER" Guid="{D959D7DE-B2E9-47EF-92AD-D5094D059C1B}">
+                <File Id="fil51925DD004D65CD65B7B78AFB5871B2E" KeyPath="yes" Source="$(var.BasePath)\TestWixToolkit.pdb" />
+            </Component>
+            <Component Id="cmp8E9F1288C79257F06B2203C1972B51BB" Directory="INSTALLFOLDER" Guid="{456093DE-89A7-4921-9713-E7137B553B81}">
+                <File Id="fil6EA2A1D92A3A7CCA055C603A04650E1F" KeyPath="yes" Source="$(var.BasePath)\TestWixToolkit.runtimeconfig.json" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

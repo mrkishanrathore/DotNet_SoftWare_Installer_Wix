@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Root element of the WiX script -->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	
+	<!-- Give Product a unquie Id per platfrom. This ensures the installer has a unique identifier for each platform-->
+	<?if $(var.Platform)=x64?>
+	<?define ProductCode = "{D1A19746-2590-4EA8-913B-421ABE21680D}" ?>
+	<?else?>
+	<?define ProductCode = "{36B5C33D-6372-496C-8FB0-E2721305BC22}" ?>
+	<?endif?>
+
+	<!-- Fixed Upgrade Id-->
+	<?define UpgradeCode = "{615FA160-AE97-480C-B53B-864FCB114E18}" ?>
+	
+	<!-- Define Main Product. The main element defining the product to be installed. -->
+	<Product Id="$(var.ProductCode)" 
+			 Name="!(loc.ProductName_$(var.Platform))" 
+			 Language="!(loc.Language)" 
+			 Version="$(var.BuildVersion)" 
+			 Manufacturer="!(loc.Company)" 
+			 UpgradeCode="$(var.UpgradeCode)">
+		
+		<!-- Provide package details -->
+		
+		<!-- InstallerVersion: Specifies the minimum Windows Installer version required (e.g., 2.0).
+			Compressed: Indicates whether files should be compressed into the installer.
+			InstallScope: Determines whether the installer is per-user or per-machine (perMachine here).
+			Platform: Specifies the target platform (e.g., x86, x64).-->
+		
+		<Package 
+			InstallerVersion="200"
+			Compressed="yes" 
+			InstallScope="perMachine"
+			Platform = "$(var.Platform)"
+			Manufacturer = "!(loc.Company)"
+			Description = "!(loc.Description)"
+			Keywords = "!(loc.Keywords)"
+			Comments = "!(loc.Comments)"
+			Languages="!(loc.Language)" 
+			/>
+
+		<!-- Downgrade Error Message will show up when a higher version of program already present -->
+		<MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeErrorMessage)" />
+		
+		<!-- Inculde .cab file into .msi file . so that we don't have to give in sepratly. Defines how files are stored in the installer. EmbedCab="yes" ensures that files are embedded within the .msi file, making it self-contained.-->
+		<MediaTemplate 
+				EmbedCab="yes"
+		/>
+
+		<!-- Define main app icon -->
+		<Icon Id="icon.ico" SourceFile="$(var.TestWixToolkit.ProjectDir)\app.ico"/>
+
+		<!-- Use the icon.ico icon for this installer (shows up in Add/Remove Programs) -->
+		<Property Id="ARPPRODUCTICON">icon.ico</Property>
+		
+		<!-- Help/Support website (shows in the Add/Remove programs). shown in the Add/Remove Programs interface-->
+		<Property Id="ARPURLINFOABOUT">https://www.your_website_name.com</Property>
+		
+		<!-- Create a basic UI for the installer -->
+		<UIRef Id="WixUI_Minimal"/>
+		
+		<!-- Change the installer UI background images -->
+		<WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\Assets\License.rtf"/>
+		<WixVariable Id="WixUIDialogBmp" Value="$(var.ProjectDir)\Assets\Background.bmp"/>
+		<WixVariable Id="WixUIBannerBmp" Value="$(var.ProjectDir)\Assets\Banner.bmp"/>
+		
+		<!-- Define components, shortcuts, files etc... for installer. A feature represents a part of the product that can be installed independently.-->
+		
+		<!--Title: The name of the feature.
+			Level: The Level attribute within a <Feature> element determines whether a feature is installed by default and       under what conditions it can be installed(1 means it’s installed by default).-->
+		<Feature Id="ProductFeature" Title="MyInstaller" Level="1">
+			
+			<!-- References a group of components (ProductComponents) that belong to the feature. Components are the actual files, shortcuts, registry entries, etc., that get installed. -->
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentGroupRef Id="PublishedComponents" />
+			
+		</Feature>
+		
+	</Product>
+
+
+	
+</Wix>

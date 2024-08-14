@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLFOLDER">
+            <Directory Id="dirCC45706F08BD6C1812518A0F2DC690EA" Name="publish">
+                <Component Id="cmp2B53E42CAD9719DFA0987960A4D6E20A" Guid="PUT-GUID-HERE">
+                    <File Id="fil3797E46EEB51AAC2D5E88B15D0B5F0C5" KeyPath="yes" Source="SourceDir\TestWixToolkit.deps.json" />
+                </Component>
+                <Component Id="cmp9F8E2B0091A94D302D8582C368667E97" Guid="PUT-GUID-HERE">
+                    <File Id="fil5B21551CDCEFC9F703E737EDBB5E7F1D" KeyPath="yes" Source="SourceDir\TestWixToolkit.dll" />
+                </Component>
+                <Component Id="cmpEDA0A81A4A3724195EDE105AD54DEBA6" Guid="PUT-GUID-HERE">
+                    <File Id="fil42FFD7831D82B9AEB2F84B1FB667E203" KeyPath="yes" Source="SourceDir\TestWixToolkit.exe" />
+                </Component>
+                <Component Id="cmpA20FA2BB2825FEC177E4EB403BA92ADE" Guid="PUT-GUID-HERE">
+                    <File Id="fil27950953D1EF324C95C6E9DFF5CC98F6" KeyPath="yes" Source="SourceDir\TestWixToolkit.pdb" />
+                </Component>
+                <Component Id="cmpA89FB8C6CCE522FE1406D17D31951214" Guid="PUT-GUID-HERE">
+                    <File Id="fil648435B5246F415D740C8D1224E9F6AA" KeyPath="yes" Source="SourceDir\TestWixToolkit.runtimeconfig.json" />
+                </Component>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="PublishedComponents">
+            <ComponentRef Id="cmp2B53E42CAD9719DFA0987960A4D6E20A" />
+            <ComponentRef Id="cmp9F8E2B0091A94D302D8582C368667E97" />
+            <ComponentRef Id="cmpEDA0A81A4A3724195EDE105AD54DEBA6" />
+            <ComponentRef Id="cmpA20FA2BB2825FEC177E4EB403BA92ADE" />
+            <ComponentRef Id="cmpA89FB8C6CCE522FE1406D17D31951214" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\abc\\source\\repos\\TestWixToolkit\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D74129F9-2263-46DC-B0FB-DA2936DEEA7A}|TestWixToolkit\\TestWixToolkit.csproj|c:\\users\\abc\\source\\repos\\testwixtoolkit\\testwixtoolkit\\testwixtoolkit.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{D74129F9-2263-46DC-B0FB-DA2936DEEA7A}|TestWixToolkit\\TestWixToolkit.csproj|solutionrelative:testwixtoolkit\\testwixtoolkit.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDD31760-5B92-433A-AEA3-B90ED3F76ED7}|MyInstaller\\MyInstaller.wixproj|C:\\Users\\abc\\source\\repos\\TestWixToolkit\\MyInstaller\\Components.wxs||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EDD31760-5B92-433A-AEA3-B90ED3F76ED7}|MyInstaller\\MyInstaller.wixproj|solutionrelative:MyInstaller\\Components.wxs||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TestWixToolkit",
+              "DocumentMoniker": "C:\\Users\\abc\\source\\repos\\TestWixToolkit\\TestWixToolkit\\TestWixToolkit.csproj",
+              "RelativeDocumentMoniker": "TestWixToolkit\\TestWixToolkit.csproj",
+              "ToolTip": "C:\\Users\\abc\\source\\repos\\TestWixToolkit\\TestWixToolkit\\TestWixToolkit.csproj",
+              "RelativeToolTip": "TestWixToolkit\\TestWixToolkit.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-14T11:11:15.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Components.wxs",
+              "DocumentMoniker": "C:\\Users\\abc\\source\\repos\\TestWixToolkit\\MyInstaller\\Components.wxs",
+              "RelativeDocumentMoniker": "MyInstaller\\Components.wxs",
+              "ToolTip": "C:\\Users\\abc\\source\\repos\\TestWixToolkit\\MyInstaller\\Components.wxs",
+              "RelativeToolTip": "MyInstaller\\Components.wxs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAgwBcAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-08-14T11:07:08.665Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

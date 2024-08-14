@@ -1,0 +1,5 @@
+..\TestWixToolkit\bin\Debug\net8.0\win-x64\publish\TestWixToolkit.pdb
+..\TestWixToolkit\bin\Debug\net8.0\win-x64\publish\TestWixToolkit.dll
+..\TestWixToolkit\bin\Debug\net8.0\win-x64\publish\TestWixToolkit.runtimeconfig.json
+..\TestWixToolkit\bin\Debug\net8.0\win-x64\publish\TestWixToolkit.deps.json
+..\TestWixToolkit\bin\Debug\net8.0\win-x64\publish\TestWixToolkit.exe

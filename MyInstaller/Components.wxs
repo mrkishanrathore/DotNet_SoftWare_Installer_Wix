@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+		
+		<!-- Groups multiple components together. This group can be referenced in other parts of the installer. -->
+		<ComponentGroup Id="ProductComponents"> 
+
+			<!--  A reference to a component with the Id="Testfile". This tells the installer that the component identified as Testfile should be included in the installation. -->
+			<!-- <ComponentRef Id="Testfile"/>-->
+
+			<!-- Shortcut -->
+			<ComponentRef Id="MainAppShortcut"/>
+			
+		</ComponentGroup>
+
+		<!-- Refers to a previously defined directory in the WiX script -->
+		<DirectoryRef Id="INSTALLFOLDER" FileSource="..\TestWixToolkit\bin\Debug\net8.0\win-$(var.Platform)\publish\">
+
+			<!-- ShortCut to Main Application folder-->
+			<Component Id="MainAppShortcut" Guid="{C22F9D53-8D9C-4FC0-A8B5-DFD07A1EFFBB}">
+
+				<Shortcut Id="MainAppShortcut"
+						  Name="!(loc.ProductName_$(var.Platform))"
+						  Target="[INSTALLFOLDER]TestWixToolkit.exe"
+						  Directory="InstallProgroamMenuFolder"
+						  WorkingDirectory="INSTALLFOLDER"
+						  Icon="icon.ico"
+						  />
+
+				<!-- Our Unique key for this component/shortcut -->
+				<RegistryValue Id ="RegShortcutKey" Root="HKCU" Key="Software\$(loc.ProductNameFolder)" Name="Shortcut" Value="1"  Type="integer" KeyPath="yes" />
+				
+				<!--Remove start menu items on uninstall-->
+				<RemoveFolder Id="RemoveStartMenu" Directory="InstallProgroamMenuFolder" On="uninstall" />
+				
+			</Component>
+			
+		</DirectoryRef>
+		
+	</Fragment> 
+</Wix>

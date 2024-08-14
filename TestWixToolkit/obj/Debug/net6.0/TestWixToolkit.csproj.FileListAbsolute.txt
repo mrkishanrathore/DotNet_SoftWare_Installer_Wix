@@ -1,0 +1,14 @@
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\bin\Debug\net6.0\TestWixToolkit.exe
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\bin\Debug\net6.0\TestWixToolkit.deps.json
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\bin\Debug\net6.0\TestWixToolkit.runtimeconfig.json
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\bin\Debug\net6.0\TestWixToolkit.dll
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\bin\Debug\net6.0\TestWixToolkit.pdb
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\obj\Debug\net6.0\TestWixToolkit.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\obj\Debug\net6.0\TestWixToolkit.AssemblyInfoInputs.cache
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\obj\Debug\net6.0\TestWixToolkit.AssemblyInfo.cs
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\obj\Debug\net6.0\TestWixToolkit.csproj.CoreCompileInputs.cache
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\obj\Debug\net6.0\TestWixToolkit.dll
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\obj\Debug\net6.0\refint\TestWixToolkit.dll
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\obj\Debug\net6.0\TestWixToolkit.pdb
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\obj\Debug\net6.0\TestWixToolkit.genruntimeconfig.cache
+C:\Users\abc\source\repos\TestWixToolkit\TestWixToolkit\obj\Debug\net6.0\ref\TestWixToolkit.dll
